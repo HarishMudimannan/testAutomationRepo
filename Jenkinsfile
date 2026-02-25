@@ -12,7 +12,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    def status = bat(script: 'npx playwright test"', returnStatus: true)
+                    def status = bat(script: 'npx playwright test login.spec.js"', returnStatus: true)
                     if (status != 0) {
                         echo "Tests failed, but continuing to generate reports..."
                     }
@@ -41,7 +41,7 @@ pipeline {
                 allowMissing: true,
                 linkRelative: false
             ])
-            
+
             // Publish Allure Report
             allure([
                 includeProperties: false,
