@@ -19,6 +19,11 @@ pipeline {
                 }
             }
         }
+        stage('Generate Allure Report') {
+            steps {
+                sh 'npx allure generate allure-results --clean -o allure-report'
+            }
+        }
     }
 
     post {
@@ -35,6 +40,13 @@ pipeline {
                  alwaysLinkToLastBuild: true,
                 allowMissing: true,
                 linkRelative: false
+            ])
+            
+            // Publish Allure Report
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
             ])
 
         
