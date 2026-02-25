@@ -1,0 +1,9 @@
+{
+    "url": "http://49.249.28.218:8081/TestServer/Build/Small_CRM/",
+    "name": "Ned Stark",
+    "email": "ned@outlook.com",
+    "password": "ned",
+    "repassword": "ned",
+    "contact": "7418529630",
+    "gender": "male"
+}
